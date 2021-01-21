@@ -1,0 +1,36 @@
+<div class="container">
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-info">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">{{ title }}</span>
+      </div>
+    </nav>
+  </header>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="list-group">
+        <h4 class="text-center p-2 bg-warning">La liste des tâches</h4>
+        <a *ngFor="let liste of mesListes"
+        (click)="displayInfos(liste)"
+         href="#" class="list-group-item list-group-item-action ">{{liste.name}}</a>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="bg-light p-5" *ngIf="listeActif">
+        <h3 class="display-5">{{ listeActif.name }}</h3>
+        <p class="lead">{{ listeActif.task }}</p>
+        <p class="lead">{{ listeActif.text }}</p>
+        <button type="button" class="btn btn-danger float-end" >{{ listeActif.action }}</button>
+      </div>
+      <div class="bg-light p-5" *ngIf="!listeActif">
+        <h2 class="display-4">Bienvenue !</h2>
+        <p class="lead">Choisissez une liste dans le menue gauche.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="text-center mt-5">
+    Copyright &copy; 2021 - LePoleS Vitry
+
+  </footer>
+
+</div>

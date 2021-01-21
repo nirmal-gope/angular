@@ -1,0 +1,46 @@
+<!--{{ title }} permet d'afficher une variable-->
+<!--
+<p>{{ unContact.name }}</p>
+<p>{{ unContact.username }}</p>
+<p>{{ unContact.email }}</p>
+-->
+<div class="container">
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">{{ title }}</span>
+      </div>
+    </nav>
+  </header>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="list-group">
+        <a *ngFor="let contact of mesContacts"
+           (click)="displayInfos(contact)"
+           href="#" class="list-group-item list-group-item-action"
+           aria-current="true">{{ contact.name }}</a>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="bg-light p-5" *ngIf="contactActif">
+        <h1 class="display-4">{{ contactActif.name }}</h1>
+        <p class="lead">{{ contactActif.username }}</p>
+        <p class="lead">{{ contactActif.email }}</p>
+      </div>
+      <div class="bg-light p-5" *ngIf="!contactActif">
+        <h1 class="display-4">Bienvenue !</h1>
+        <p class="lead">Choisissez un contact dans le menue gauche.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="text-center mt-5">
+    Copyright &copy; 2021 -LePoleS Vitry
+
+  </footer>
+
+</div>
+
+
+
+
+
